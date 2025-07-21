@@ -1,0 +1,8 @@
+2025-07-21 21:10:26,520 - FormAgent_senti108 - INFO - Firebase initialized successfully
+2025-07-21 21:10:26,563 - FormAgent_senti108 - INFO - Form ingestion agent starting on port 5000
+2025-07-21 21:10:26,563 - FormAgent_senti108 - INFO - Webhook endpoints available:
+2025-07-21 21:10:26,564 - FormAgent_senti108 - INFO -   - Health check: http://localhost:5000/health
+2025-07-21 21:10:26,564 - FormAgent_senti108 - INFO -   - Contact form: http://localhost:5000/webhook/contact-form
+2025-07-21 21:10:26,564 - FormAgent_senti108 - INFO -   - Feedback form: http://localhost:5000/webhook/feedback
+2025-07-21 21:10:26,565 - FormAgent_senti108 - INFO -   - Support form: http://localhost:5000/webhook/support
+2025-07-21 21:10:26,566 - FormAgent_senti108 - INFO -   - Custom form: http://localhost:5000/webhook/custom

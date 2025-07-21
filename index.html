@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Agent Customer Sentiment Watchdog</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <h1 class="header__title">🎯 Customer Sentiment Watchdog</h1>
+                <div class="header__status">
+                    <div class="status status--success" id="systemStatus">
+                        <span class="status__indicator"></span>
+                        System Active
+                    </div>
+                </div>
+            </div>
+            <nav class="nav">
+                <button class="nav__item nav__item--active" data-tab="dashboard">Dashboard</button>
+                <button class="nav__item" data-tab="simulators">Simulators</button>
+                <button class="nav__item" data-tab="config">Configuration</button>
+                <button class="nav__item" data-tab="alerts">Alerts</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Alert Banner -->
+            <div class="alert-banner" id="alertBanner" style="display: none;">
+                <div class="alert-banner__content">
+                    <span class="alert-banner__icon">🚨</span>
+                    <div class="alert-banner__text">
+                        <strong>High Priority Alert:</strong>
+                        <span id="alertMessage">Negative sentiment spike detected!</span>
+                    </div>
+                    <button class="alert-banner__close" id="closeAlert">&times;</button>
+                </div>
+            </div>
+
+            <!-- Dashboard Tab -->
+            <div class="tab-content" id="dashboard">
+                <!-- Key Metrics -->
+                <section class="metrics">
+                    <div class="metrics__grid">
+                        <div class="metric-card">
+                            <div class="metric-card__icon">📨</div>
+                            <div class="metric-card__content">
+                                <div class="metric-card__value" id="totalTickets">0</div>
+                                <div class="metric-card__label">Total Tickets</div>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-card__icon">✅</div>
+                            <div class="metric-card__content">
+                                <div class="metric-card__value" id="processedTickets">0</div>
+                                <div class="metric-card__label">Processed</div>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-card__icon">⏳</div>
+                            <div class="metric-card__content">
+                                <div class="metric-card__value" id="pendingTickets">0</div>
+                                <div class="metric-card__label">Pending</div>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-card__icon">⚠️</div>
+                            <div class="metric-card__content">
+                                <div class="metric-card__value" id="alertCount">0</div>
+                                <div class="metric-card__label">Active Alerts</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Charts Section -->
+                <section class="charts">
+                    <div class="charts__grid">
+                        <div class="chart-container">
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3 class="chart-title">Sentiment Distribution</h3>
+                                    <div class="chart-wrapper">
+                                        <canvas id="sentimentPieChart" width="400" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3 class="chart-title">Sentiment Trends Over Time</h3>
+                                    <div class="chart-wrapper">
+                                        <canvas id="sentimentLineChart" width="400" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Messages -->
+                <section class="messages">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Recent Messages</h3>
+                            <div class="card__actions">
+                                <button class="btn btn--sm btn--secondary" id="refreshMessages">
+                                    🔄 Refresh
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <div class="messages-table" id="messagesTable">
+                                <!-- Messages will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Simulators Tab -->
+            <div class="tab-content hidden" id="simulators">
+                <div class="simulators__grid">
+                    <!-- Form Submission Simulator -->
+                    <div class="simulator-card">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3>📝 Form Submission Simulator</h3>
+                            </div>
+                            <div class="card__body">
+                                <form id="formSimulator">
+                                    <div class="form-group">
+                                        <label class="form-label" for="formType">Form Type</label>
+                                        <select class="form-control" id="formType">
+                                            <option value="contact">Contact Form</option>
+                                            <option value="feedback">Feedback Form</option>
+                                            <option value="support">Support Ticket</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="customerName">Customer Name</label>
+                                        <input type="text" class="form-control" id="customerName" placeholder="Enter customer name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="customerEmail">Customer Email</label>
+                                        <input type="email" class="form-control" id="customerEmail" placeholder="Enter email address">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="messageSubject">Subject</label>
+                                        <input type="text" class="form-control" id="messageSubject" placeholder="Enter subject">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="messageText">Message</label>
+                                        <textarea class="form-control" id="messageText" rows="4" placeholder="Enter message or use quick templates below"></textarea>
+                                    </div>
+                                    <div class="quick-templates">
+                                        <div class="form-label">Quick Templates:</div>
+                                        <div class="template-buttons">
+                                            <button type="button" class="btn btn--sm btn--outline template-btn" data-sentiment="angry">😡 Angry</button>
+                                            <button type="button" class="btn btn--sm btn--outline template-btn" data-sentiment="confused">🤔 Confused</button>
+                                            <button type="button" class="btn btn--sm btn--outline template-btn" data-sentiment="happy">😊 Happy</button>
+                                            <button type="button" class="btn btn--sm btn--outline template-btn" data-sentiment="neutral">😐 Neutral</button>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn--primary btn--full-width">Submit Form</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Simulator -->
+                    <div class="simulator-card">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3>📧 Email Ingestion Simulator</h3>
+                            </div>
+                            <div class="card__body">
+                                <p class="text-secondary">Simulate receiving new customer emails with various sentiments.</p>
+                                <div class="email-buttons">
+                                    <button class="btn btn--outline email-sim-btn" data-sentiment="anger">
+                                        📧 Receive Angry Email
+                                    </button>
+                                    <button class="btn btn--outline email-sim-btn" data-sentiment="confusion">
+                                        📧 Receive Confused Email
+                                    </button>
+                                    <button class="btn btn--outline email-sim-btn" data-sentiment="delight">
+                                        📧 Receive Happy Email
+                                    </button>
+                                    <button class="btn btn--primary" id="randomEmailBtn">
+                                        🎲 Random Email
+                                    </button>
+                                </div>
+                                <div class="email-status" id="emailStatus" style="display: none;">
+                                    <div class="status status--success">
+                                        <span class="status__indicator"></span>
+                                        <span id="emailStatusText">Email received and processing...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration Tab -->
+            <div class="tab-content hidden" id="config">
+                <div class="config__grid">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>⚙️ System Configuration</h3>
+                        </div>
+                        <div class="card__body">
+                            <form id="configForm">
+                                <div class="form-group">
+                                    <label class="form-label" for="refreshInterval">Auto-refresh Interval (seconds)</label>
+                                    <input type="number" class="form-control" id="refreshInterval" value="5" min="1" max="60">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="alertThreshold">Alert Threshold (% negative sentiment)</label>
+                                    <input type="number" class="form-control" id="alertThreshold" value="40" min="10" max="90">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="batchSize">Processing Batch Size</label>
+                                    <input type="number" class="form-control" id="batchSize" value="10" min="1" max="100">
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="autoProcessing" checked>
+                                        <label class="form-label" for="autoProcessing">Enable Auto-processing</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" id="realTimeAlerts" checked>
+                                        <label class="form-label" for="realTimeAlerts">Enable Real-time Alerts</label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn--primary">Save Configuration</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>📊 Agent Status</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="agent-status">
+                                <div class="agent-item">
+                                    <div class="agent-info">
+                                        <span class="agent-name">Email Ingestion Agent</span>
+                                        <div class="status status--success">
+                                            <span class="status__indicator"></span>
+                                            Active
+                                        </div>
+                                    </div>
+                                    <div class="agent-stats">Last processed: <span id="emailAgentLastRun">2 minutes ago</span></div>
+                                </div>
+                                <div class="agent-item">
+                                    <div class="agent-info">
+                                        <span class="agent-name">Form Processing Agent</span>
+                                        <div class="status status--success">
+                                            <span class="status__indicator"></span>
+                                            Active
+                                        </div>
+                                    </div>
+                                    <div class="agent-stats">Last processed: <span id="formAgentLastRun">1 minute ago</span></div>
+                                </div>
+                                <div class="agent-item">
+                                    <div class="agent-info">
+                                        <span class="agent-name">Sentiment Analysis Agent</span>
+                                        <div class="status status--success">
+                                            <span class="status__indicator"></span>
+                                            Active
+                                        </div>
+                                    </div>
+                                    <div class="agent-stats">Last processed: <span id="sentimentAgentLastRun">30 seconds ago</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alerts Tab -->
+            <div class="tab-content hidden" id="alerts">
+                <div class="card">
+                    <div class="card__header">
+                        <h3>⚠️ Alert History</h3>
+                        <div class="card__actions">
+                            <button class="btn btn--sm btn--secondary" id="clearAlerts">Clear All</button>
+                        </div>
+                    </div>
+                    <div class="card__body">
+                        <div class="alerts-list" id="alertsList">
+                            <!-- Alerts will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Multi-Agent Customer Sentiment Watchdog System</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

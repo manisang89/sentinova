@@ -1,0 +1,46 @@
+2025-07-21 21:12:32,628 - ProcessingAgent_senti108 - INFO - Firebase initialized successfully
+2025-07-21 21:12:32,629 - ProcessingAgent_senti108 - INFO - Gemini API initialized successfully
+2025-07-21 21:12:32,629 - ProcessingAgent_senti108 - INFO - Starting sentiment processing agent for app: senti108
+2025-07-21 21:12:32,629 - ProcessingAgent_senti108 - INFO - Processing interval: 60 seconds
+2025-07-21 21:12:32,630 - ProcessingAgent_senti108 - INFO - Batch size: 10
+2025-07-21 21:12:34,014 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:13:34,175 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:14:34,685 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:15:34,995 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:16:35,341 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:17:35,555 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:18:35,814 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:19:35,967 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:20:36,210 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:21:36,593 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:22:36,786 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:23:36,996 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:24:37,384 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:25:37,483 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:26:37,732 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:27:37,849 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:28:37,978 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:29:38,279 - ProcessingAgent_senti108 - INFO - Retrieved 1 pending tickets
+2025-07-21 21:29:40,477 - ProcessingAgent_senti108 - INFO - Processed ticket ym3VEFX5Y7BQb1Mwswnq: anger (confidence: 0.85)
+2025-07-21 21:29:42,478 - ProcessingAgent_senti108 - INFO - Batch processing complete: 1 processed, 0 errors
+2025-07-21 21:30:42,883 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:31:43,199 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:32:43,334 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:33:43,800 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:34:44,057 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:35:44,194 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:36:44,268 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:37:44,357 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:38:44,572 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:39:44,653 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:40:44,734 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:41:44,850 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:42:44,945 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:43:45,040 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:44:45,115 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:45:45,204 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:46:45,314 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:47:45,430 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:48:45,510 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:49:45,600 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets
+2025-07-21 21:50:45,683 - ProcessingAgent_senti108 - INFO - Retrieved 0 pending tickets

@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # Email Ingestion Agent
+  email-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.email
+    environment:
+      - APP_ID=${APP_ID}
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      - processing-agent
+
+  # Form Ingestion Agent
+  form-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.form
+    ports:
+      - "5000:5000"
+    environment:
+      - APP_ID=${APP_ID}
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+
+  # Processing Agent
+  processing-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.processing
+    environment:
+      - APP_ID=${APP_ID}
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+
+  # Dashboard
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      - APP_ID=${APP_ID}
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+
+volumes:
+  logs:

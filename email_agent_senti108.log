@@ -1,0 +1,31 @@
+2025-07-21 21:09:05,045 - EmailAgent_senti108 - INFO - Firebase initialized successfully
+2025-07-21 21:09:05,047 - EmailAgent_senti108 - INFO - Starting email ingestion agent for app: senti108
+2025-07-21 21:09:05,047 - EmailAgent_senti108 - INFO - Check interval: 300 seconds
+2025-07-21 21:09:08,130 - EmailAgent_senti108 - INFO - Connected to email server: imap.gmail.com
+2025-07-21 21:09:08,646 - EmailAgent_senti108 - INFO - Found 0 new emails
+2025-07-21 21:09:09,338 - EmailAgent_senti108 - INFO - Sleeping for 300 seconds...
+2025-07-21 21:14:11,230 - EmailAgent_senti108 - INFO - Connected to email server: imap.gmail.com
+2025-07-21 21:14:11,624 - EmailAgent_senti108 - INFO - Found 0 new emails
+2025-07-21 21:14:12,688 - EmailAgent_senti108 - INFO - Sleeping for 300 seconds...
+2025-07-21 21:19:15,227 - EmailAgent_senti108 - INFO - Connected to email server: imap.gmail.com
+2025-07-21 21:19:16,141 - EmailAgent_senti108 - INFO - Found 0 new emails
+2025-07-21 21:19:16,449 - EmailAgent_senti108 - INFO - Sleeping for 300 seconds...
+2025-07-21 21:24:18,471 - EmailAgent_senti108 - INFO - Connected to email server: imap.gmail.com
+2025-07-21 21:24:18,782 - EmailAgent_senti108 - INFO - Found 0 new emails
+2025-07-21 21:24:19,168 - EmailAgent_senti108 - INFO - Sleeping for 300 seconds...
+2025-07-21 21:29:20,678 - EmailAgent_senti108 - INFO - Connected to email server: imap.gmail.com
+2025-07-21 21:29:21,062 - EmailAgent_senti108 - INFO - Found 1 new emails
+2025-07-21 21:29:22,901 - EmailAgent_senti108 - INFO - Stored email from Manikesh <manisang462@gmail.com> with ID: ym3VEFX5Y7BQb1Mwswnq
+2025-07-21 21:29:23,208 - EmailAgent_senti108 - INFO - Sleeping for 300 seconds...
+2025-07-21 21:34:25,949 - EmailAgent_senti108 - INFO - Connected to email server: imap.gmail.com
+2025-07-21 21:34:26,319 - EmailAgent_senti108 - INFO - Found 0 new emails
+2025-07-21 21:34:26,673 - EmailAgent_senti108 - INFO - Sleeping for 300 seconds...
+2025-07-21 21:39:28,468 - EmailAgent_senti108 - INFO - Connected to email server: imap.gmail.com
+2025-07-21 21:39:28,786 - EmailAgent_senti108 - INFO - Found 0 new emails
+2025-07-21 21:39:29,098 - EmailAgent_senti108 - INFO - Sleeping for 300 seconds...
+2025-07-21 21:44:30,823 - EmailAgent_senti108 - INFO - Connected to email server: imap.gmail.com
+2025-07-21 21:44:31,136 - EmailAgent_senti108 - INFO - Found 0 new emails
+2025-07-21 21:44:31,442 - EmailAgent_senti108 - INFO - Sleeping for 300 seconds...
+2025-07-21 21:49:33,400 - EmailAgent_senti108 - INFO - Connected to email server: imap.gmail.com
+2025-07-21 21:49:33,710 - EmailAgent_senti108 - INFO - Found 0 new emails
+2025-07-21 21:49:34,017 - EmailAgent_senti108 - INFO - Sleeping for 300 seconds...
